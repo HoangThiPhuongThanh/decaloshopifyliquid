@@ -1,0 +1,42 @@
+{
+  "sections":{
+    "section0":{
+      "type": "insidepage"
+    },
+    "section1":{
+      "type": "contact",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+          }
+        },
+        "column4": {
+          "type": "column",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3",
+        "column4"
+      ]
+    }
+  },
+  "order": [
+    "section0",
+    "section1"
+  ]
+}

@@ -1,0 +1,95 @@
+<section id="st2-home" class="discover">
+    <div class="ctnr">
+        <div class="distance-shared">
+            <div class="box border-0 d-flex fw-wrap">
+                <div class="" style=" --w-lg:6; --w-xs:12;">
+                    <div class="box__video cl-video p-relative h-100">
+                        <video >
+                            <source src="{{ section.settings.video_embed | video_tag }}
+                        </video>
+                        {% if section.settings.image != blank %}
+                            <img src="{{ section.settings.image | image_url }}" alt="" class = "w-100 d-block click-video">
+                        {%-  else -%}
+                            {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg  w-100 h-100' }}
+                        {% endif %}
+                        <div class="btn-click-video  p-absolute right-0 left-0 bottom-0 top-0 d-flex align-items-center jc-center">
+                            <button  onclick="event.preventDefault();"  class=" btn video__btn bg-transparent d-flex align-items-center jc-center">
+                                {%  render 'icon-play' %} 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="" style=" --w-lg:6; --w-xs:12;">
+                    <div class="box__content discover__content">
+                        <h2 class ="h1 line-height-15em title color-black mb-20">
+                            {{ section.settings.heading }}
+                        </h2>
+                        <div class="mb-70">
+                            {% if section.settings.paragraph != blank %}
+                                {{ section.settings.paragraph}}
+                            {%- else -%}
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et doloreLorem ipsum dolor sit amet, 
+                                    consectetur adipiscing elit, sed do eiusmod tempor consecte
+                                </p>
+                            {% endif %}
+                        </div>
+                        <a  href="{{ section.settings.link-btn }}" class ="btn d-inline-block btn-primary">
+                            {% if section.settings.button_label != blank %}
+                                {{  section.settings.button_label}}
+                            {%- else -%}
+                                Read more
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+<section class="modal-video">
+    <div class="cl-video close-video">X</div>
+    <div class="modal-content">
+    </div>
+</section>
+{% schema %}
+    {
+      "name": "Video",
+      "class": "section-video",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "video",
+            "id": "video_embed",
+            "label": "Video embed"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "heading",
+            "default": "Title video",
+            "label": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "paragraph",
+            "label": "Paragraph"
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "default": "Shop now",
+            "label": "Button",
+            "info": "Button label"
+        },
+        {
+            "type": "url",
+            "id": "link-btn",
+            "label": "Link button"
+        }
+      ]
+    }
+{% endschema %}

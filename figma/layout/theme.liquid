@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initialetter-spacingcale=1.0">
+    <title>Figma 1</title>
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
+    {{ 'utiliti.css' | asset_url | stylesheet_tag }}
+    {{ 'reponisve.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+</head>
+<body>
+    <header>
+        {% sections 'header-group' %}
+    </header>
+    <main>
+        {{ content_for_layout }} 
+    </main>
+    {% sections 'footer-group' %}
+    <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
+</body>
+</html>

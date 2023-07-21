@@ -1,0 +1,52 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "figma",
+    "theme_author": "Shopify",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes\/os20\/themes-by-shopify\/dawn",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Color Scheme Settings",
+    "settings": [
+      {
+        "type": "color",
+        "label": "Primary Color",
+        "id": "primary_color",
+        "default": "#007bff"
+      },
+      {
+        "type": "color",
+        "label": "Secondary Color",
+        "id": "secondary_color",
+        "default": "#6c757d"
+      },
+      {
+        "type": "color",
+        "label": "Background Color",
+        "id": "background_color",
+        "default": "#f8f9fa"
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "text_color",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "label": "Link Color",
+        "id": "link_color",
+        "default": "#17a2b8"
+      }
+    ]
+  }
+]
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+@media(min-width: 768px) {
+  .image-with-text__content--desktop-right > * {
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .image-with-text__content--desktop-left > * {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .image-with-text__content--desktop-center > * {
+    align-self: center;
+    text-align: center;
+  }
+  .order1{
+    order: 1;
+  }
+  .order2{
+    order: 2;
+  }
+
+}

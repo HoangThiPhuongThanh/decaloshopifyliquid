@@ -1,0 +1,96 @@
+<section id="banner" class="p-relative">
+  
+    <div class="slideshow-container slideshow">
+      {% for block in section.blocks %}
+      <div class="banner__img mySlides banner__content p-relative fade {% if forloop.first %} d-block {% endif %} ">
+          <div class="p-absolute top-0 left-0 w-100 h-100">
+            {% if block.settings.image != blank %}
+              <img src=" {{ block.settings.image | image_url }}" alt="" class="h-100 w-100">
+            {%- else -%}
+              {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
+            {% endif %}
+          </div>
+          <div class=" p-relative w-100">
+              <div class="ctnr">
+                 {% if block.settings.heading != blank %}
+                    <h3 class =" h1  line-height-15em title color-white banner__title">
+                      {{ block.settings.heading }}
+                    </h3>
+                  {%- else -%}
+                    <h3 class ="h1  line-height-15em title color-white banner__title">Welcome to store</h3>
+                  {% endif %}
+                  <a href="{{block.settings.link}}" class="btn btn-primary d-inline-block">{{ block.settings.button_label}}</a>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+        <a class="prev p-absolute" onclick="plusSlides(-1)">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 1L6 11.3265L18 23" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="next p-absolute" onclick="plusSlides(1)">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 1L18 11.3265L6 23" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+     
+    </div>
+ 
+</section>
+
+
+
+{% schema %}
+{
+    "name": "Slideshow",
+    "class": "index-section index-section--flush",
+    "settings": [
+      
+    ],
+    "blocks": [
+    {
+      "type": "image",
+      "name": "Image slide",
+      "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Title baner",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "Shop now",
+        "label": "Button",
+        "info": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slide",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

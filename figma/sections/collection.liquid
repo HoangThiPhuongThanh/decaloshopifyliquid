@@ -1,0 +1,126 @@
+<section id="banner-collection" class="p-relative">
+  <div class="p-absolute top-0 left-0 w-100 h-100">
+    {% if  section.settings.image != blank %}
+      <img class="w-100 h-100" src="{{ section.settings.image |  image_url }}" alt="">
+    {%- else -%}
+      {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
+    {% endif %}
+  </div>
+  <div class="p-relative w-100">
+    <div class="ctnr w-100">
+      <h2 class ="collection__title line-height-15em h1 title color-white">
+        {{ collection.title }}
+      </h2>
+      <p class="collection__desc">
+        {{ section.settings.paragraph }}
+      </p>
+    </div>
+  </div>
+</section>
+<section class="product distance-shared">
+  <div class="ctnr">
+      <div class="product__filter">
+          <div class="row">
+              <div class="clm" style = "--w-xs: 12; --w-sm: 12; --w-md:5;">
+                  <p>There are 30 products</p>
+              </div>
+              <div class="clm d-flex product__form align-items-center" style = "--w-xs: 12; --w-sm: 12; --w-md:7;">
+                  <div class="form-group ">
+                      <form id="sort-by-form" class="sort-by-form">
+                        <label for="sort-by" class ="product__label letter-spacing  tt-uppercase fw-600">Sort by:</label>
+                        <select name="sort-by" id="sort-by" class=" fw-600 product__select letter-spacing form-control border-0 bg-transparent tt-uppercase">
+                          <option value="price-ascending">Price: Low to High</option>
+                          <option value="price-descending">Price: High to Low</option>
+                         
+                        </select>
+                      </form>
+                      <span class="form-message fw-600"></span>
+                  </div>
+                  <button type="submit" class ="btn fw-600 product__filter--padding">Filter</button>
+              </div> 
+          </div>
+      </div>
+      <div class="product__list">
+        <div class="row">
+          {% if request.query_string contains 'sort_by=' %}
+                {% assign sort_by_value = request.query_string | remove: 'sort_by=' %}
+                {% assign sorted_products = collection.products | sort: sort_by_value %}
+              {% else %}
+                {% assign sorted_products = collection.products %}
+              {% endif %}
+          {%- for products in sorted_products -%}
+            {% assign featured_image = products.featured_image | img_url: 'master' %}
+            <div class="clm mb-20" style=" --w-lg:3; --w-xs:6;">
+              <div class="box border-0 distance-box h-100">
+                  <div class="box__img p-relative">
+                    <a href="{{ products.url }}" class = "d-block">
+                      {% if featured_image != blank %}
+                          <img src="{{featured_image}}" alt=""  class="w-100 products__image">
+                      {%-  else -%}
+                          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+                    </a>
+                    <button href="" class="product__icon bg-transparent border-0 p-absolute top-0 right-0 d-block">
+                      {% render 'icon-heart' %}
+                    </button >
+                  </div>
+                  <div class="box__content product__content text-align-center d-flex" style="flex-direction: column">
+                    <div style="flex: 1;">
+                      <h3 class="h4 line-height-15em title product__title mt-20">{{ products.title }}</h3>
+                    </div>
+                    <div>
+                      <span class="d-flex jc-center price mt-10">
+                        {% if products.price != blank %}
+                          {% assign price = products.price | split: "," %}
+                          <span class="price__new d-inline-block">{{ price.first | money}}</span>
+                          {%-  else -%} 
+                          <p>Liên hệ</p>
+                        {% endif %}
+                      </span>
+                      <form action="/cart/add" method="post" id="">
+                        <input type="hidden" name="id" value="{{ products.variants.first.id }}">
+                        <div>
+                          <button type="submit" class ="btn btn-secondary mt-20 product__btn ">
+                            Add to cart
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</section>
+<script>
+  document.getElementById('sort-by').addEventListener('change', function() {
+    var selectedValue = this.value;
+    var currentURL = window.location.href;
+    var separator = currentURL.includes('?') ? '&' : '?';
+    var newURL = currentURL + separator + 'sort_by=' + selectedValue;
+    window.location.href = newURL;
+  });
+</script>
+{% schema  %} 
+{
+  "name":"Collection",
+  "class":"section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+    }
+  ]
+
+}
+{% endschema %}
+

@@ -1,0 +1,34 @@
+<section id="st1-home" class="shop">
+  <div class="ctnr">
+    <div class="distance-shared">
+      <h2 class ="h1 line-height-15em title color-black title-home--bottom text-align-center">
+        {{ section.settings.heading }}
+      </h2>
+      {% render 'collection-list' %}
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Featured collection",
+    "class": "section",
+    "settings": [
+      {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Featured collection",
+          "label": "Heading"
+      },
+      {
+          "type": "collection_list",
+          "id": "collection",
+          "label": "Collection"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Featured collection"
+    }
+  ]
+  }
+{% endschema %}

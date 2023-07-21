@@ -1,0 +1,145 @@
+<section class="tabs" id="tabs">
+  <div class="distance-shared">
+      <div class="tabs__link">
+          <div class="ctnr">
+              <ul class="tabs__button tab-links d-flex">
+                {% for tab in section.blocks %}
+                  <li class=" btn tab__btn p-relative {% if forloop.first %} active {% endif %} " onclick="showTab(event, '{{ tab.id }}')">{{ tab.settings.heading }}</li>
+                {% endfor %}
+              
+              </ul>
+          </div>
+      </div>
+      <div class="tabs__content">
+          <div class="ctnr">
+            {% for tab in section.blocks %}
+            <div id="{{ tab.id }}" class="tabcontent tab-item {% if forloop.first %} active {% endif %}">
+              {% for i in (1..5) %}
+                {% capture question_i %}section.blocks.settings['question_{{ i }}']{% endcapture %}
+                {% capture answer_i %}section.blocks.settings['answer_{{ i }}']{% endcapture %}
+                {% if question_i != blank and answer_i != blank %}
+                  <div class="box box-fqa border-0" onclick>
+                    <div class="tabcontent-title p-relative">
+                      <h5 class="h4 title">
+                        {{ question_i | strip_html }}
+                      </h5>
+                      <svg class="tabcontent__icon p-absolute top-0 right-0 bottom-0" width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21 13L3 13L3 11L21 11L21 13Z"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11 21L11 3L13 3L13 21L11 21Z"></path>
+                      </svg>
+                    </div>
+                    <div class="tabcontent-detail">
+                      <div class="tabcontent__desc">
+                        {{ answer_i | strip_html }}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endfor %}
+          </div>
+      </div>
+  </div>
+</section>
+<script>
+  var fqa = document.querySelectorAll(".box-fqa");
+var fq2 = document.querySelectorAll(".tabcontent__icon");
+fqa.forEach((test, index) => { 
+  test.addEventListener('click', () => {
+    fqa[index].classList.toggle('show-click');
+    fq2[index].classList.toggle('show-icon');
+  });
+});
+</script>
+{% schema %}
+  {
+    "name": "Tab FQA",
+    "class": "section",
+    "blocks": [
+      {
+        "type":"tag",
+        "name": "Tag",
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "heading",
+            "default": "Title ",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "paragraph",
+            "label": "Paragraph",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "question_1",
+            "default": "Any question ",
+            "label": "Question 1"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "answer_1",
+            "default": "Answer ",
+            "label": "Answer 1"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "question_2",
+            "default": "Any question ",
+            "label": "Question 2"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "answer_2",
+            "default": "Answer ",
+            "label": "Answer 2"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "question_3",
+            "default": "Any question ",
+            "label": "Question 3"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "answer_3",
+            "default": "Answer ",
+            "label": "Answer 3"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "question_4",
+            "default": "Any question ",
+            "label": "Question 4"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "answer_4",
+            "default": "Answer ",
+            "label": "Answer 4"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "question_5",
+            "default": "Any question ",
+            "label": "Question 5"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "answer_5",
+            "default": "Answer ",
+            "label": "Answer 5"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,56 @@
+<section class="why-choose text-align-center  p-relative">
+  <div class="p-absolute top-0 left-0 w-100 h-100">
+    {% if section.settings.image != blank %}
+      <img src=" {{ block.settings.image | image_url }}" alt="" class="h-100 w-100">
+    {%- else -%}
+      {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
+    {% endif %}
+  </div>
+  <div class=" p-relative w-100">
+    <div class="ctnr">
+      <h2 class ="why-choose__title  line-height-15em h1 title color-white text-align-center">
+        {{ section.settings.heading }}
+      </h2>
+      {{ section.settings.paragraph }}
+      <a href="{{ section.settings.link }}" class = "btn btn-primary mt-40 d-inline-block">{{ section.settings.button_label }}</a></h3>
+    </div>
+  </div>
+</section>
+{% schema %} 
+  {
+    "name":"Why choose",
+    "class":"section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Title",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "Title button",
+        "label": "Button",
+        "info": "Button label"
+      },
+      { 
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      },
+      {
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>"
+      }
+    ]
+  }
+{% endschema %}
+

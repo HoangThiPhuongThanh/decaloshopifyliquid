@@ -1,0 +1,44 @@
+{
+  "sections":{
+    "section":{
+      "type": "insidepage"
+    },
+    "section1":{
+      "type": "video-history"
+    },
+    "section2":{
+      "type": "main-history",
+      "blocks": {
+        "column1": {
+          "type": "history",
+          "settings": {
+          }
+        },
+        "column2": {
+          "type": "history",
+          "settings": {
+          }
+        },
+        "column3": {
+          "type": "history",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ]
+    },
+    "section3":{
+      "type": "history-why-choose"
+    }
+  },
+  "order": [
+    "section",
+    "section1",
+    "section2",
+    "section3"
+  ]
+}

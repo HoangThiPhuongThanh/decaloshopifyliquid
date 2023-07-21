@@ -1,0 +1,46 @@
+<section id="story" class="p-relative" style="background: url(./image/image-product_1.png);">
+  <div class="p-absolute top-0 left-0 w-100 h-100">
+    {% if section.settings.image != blank %}
+      <img src=" {{ section.settings.image | image_url }}" alt="" class="h-100 w-100">
+    {%- else -%}
+      {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
+    {% endif %}
+  </div>
+  <div class=" p-relative w-100">
+    <div class="ctnr">
+        <h2 class ="title line-height-15em h1 mb-15 color-white text-align-center">{{ section.settings.heading }}</h2>
+        <h4 class ="title  line-height-15em h4 color-white text-align-center">{{ section.settings.heading2 }}</h4>
+    </div> 
+  </div>
+</section>
+{% schema %}  
+  {
+    "name": "Banner text",
+    "class":"section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Tilte",
+        "label": "Heading top"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading2",
+        "default": "Tilte",
+        "label": "Heading bottom"
+      },
+      {
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+      }
+    ]
+  }
+{% endschema %}

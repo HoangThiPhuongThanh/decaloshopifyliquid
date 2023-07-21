@@ -1,0 +1,72 @@
+{
+  "sections":{
+    "section0":{
+      "type": "insidepage"
+    },
+    "section1":{
+      "type": "note-product",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ]
+    },
+    "section2":{
+      "type": "banner-text"
+    },
+    "section3":{
+      "type": "image-with-text",
+      "blocks": {
+        "content0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Title history"
+          }
+        },
+        "content1": {
+          "type": "text",
+          "settings": {
+            "paragraph": "<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu <\/p>"
+          }
+        },
+        "content2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop now",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "content0",
+        "content1",
+        "content2"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "section0",
+    "section1",
+    "section2",
+    "section3"
+  ]
+}

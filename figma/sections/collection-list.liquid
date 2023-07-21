@@ -1,0 +1,61 @@
+<div class="ctnr">
+  <div class="distance-shared">
+    <div class="row">
+    {% if collections != blank %}
+      {% for collection in collections %}
+        {% assign featured_image = collection.featured_image | img_url: 'master' %}
+        <div class="clm" style=" --w-lg:3; --w-xs:6;">
+            <div class="box border-0 p-relative distance-box">
+                <div class="box__img box__img__colection">
+                    {% if  featured_image != blank %}
+                        <img src="{{ featured_image }}" alt="" class="item-img w-100 h-100 img d-block">
+                    {%- else -%}
+                        {{ 'collection-1' | placeholder_svg_tag }}
+                    {% endif %}
+                </div>
+                <div class="box__content box__content__collecton  p-absolute text-align-center left-0 right-0 bottom-0">
+                    <a href="{{ collection.url }}" class ="btn btn-primary d-inline-block shop__btn shop__btn--padding ">
+                        <h3 class="btn pd-0">{{ collection.title }}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+      {%- else -%}
+        {% for i in (1..4) %}
+          <div class="clm" style=" --w-lg:3; --w-xs:6; cursor-not-allowed">
+            <div class="box border-0 p-relative distance-box">
+                <div class="box__img box__img__colection">
+                  {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg  w-100 img' }}
+                </div>
+                <div class="box__content box__content__collecton  p-absolute text-align-center left-0 right-0 bottom-0">
+                    <a href="" onclick="event.preventDefault();" class="btn btn-primary d-inline-block shop__btn shop__btn--padding cursor-not-allowed">
+                      <h3 class="btn pd-0 cursor-not-allowed">Title</h3>
+                    </a>
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Featured collection",
+    "class": "section",
+    "settings": [
+      {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Featured collection",
+          "label": "Heading"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Featured collection"
+    }
+  ]
+  }
+{% endschema %}

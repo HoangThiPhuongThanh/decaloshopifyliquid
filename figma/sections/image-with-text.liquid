@@ -1,0 +1,146 @@
+{{ 'image-with-text.css' | asset_url | stylesheet_tag }}
+<section id="clean-tool" class="distance-shared">
+  <div class="ctnr">
+      <div class="d-flex fw-wrap product--{{ section.settings.media_position }}">
+        <div class="clean-tool__content image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} {% if  section.settings.media_position == 'left' %} order1 {% endif %}" style="--w-md:6; --w-sm:12; --w-xs:12;">
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              {%- when 'heading' -%}
+                <h2 class ="title line-height-15em h1 clean-tool__title">{{ block.settings.heading }}</h2>
+              {%- when 'text' -%}
+              <div class="clean-tool__desc">
+                {{ block.settings.paragraph }}
+              </div>
+              {%- when 'button' -%}
+              <div>
+                <a href="{{ block.settings.link }}" class = "btn btn-primary d-inline-block">{{ block.settings.button_label }}</a>
+              </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+        <div class="clean-tool__img" {% if  section.settings.media_position == 'left' %} order2 {% endif %} style="--w-md:6; --w-sm:12; --w-xs:12;">
+          <div class=" h-100">
+              <a href="" class="d-block h-100" >
+                {% if section.settings.image != blank %}
+                  <img src="{{ section.settings.image }}" alt="" class="w-100 h-100">
+                {%- else -%}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                {%- endif -%}
+              </a>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+{% schema %} 
+  {
+    "name":"Image with text",
+    "class":"section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+      "type": "select",
+      "id": "media_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+        "default": "left",
+        "label": "Desktop media position",
+        "info": "Position is automatically optimized for mobile."
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Left"
+      }
+    ],
+    "blocks":[
+      {
+      "type": "heading",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Title",
+          "label": "Heading"
+        }
+      ]
+      },
+      {
+      "type": "text",
+      "name": "Caption",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "paragraph",
+          "label": "Paragraph",
+          "default": "<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+        }
+      ]
+      }, 
+      {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "Shop now",
+        "label": "Button",
+        "info": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      }
+      ]
+      }
+    ]
+    ,
+    "presets": [
+      {
+        "name": "Image with text",
+        "blocks": [
+          {
+            "type": "heading"
+          },
+          {
+            "type": "text"
+          },
+          {
+            "type": "button"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %} 

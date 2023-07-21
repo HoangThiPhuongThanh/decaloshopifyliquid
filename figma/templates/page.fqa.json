@@ -1,0 +1,14 @@
+{
+  "sections":{
+    "section0":{
+      "type": "insidepage"
+    },
+    "section1":{
+      "type": "fqa"
+    }
+  },
+  "order": [
+    "section0",
+    "section1"
+  ]
+}

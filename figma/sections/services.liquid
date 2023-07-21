@@ -1,0 +1,105 @@
+<section id="st3-home" class="services"> 
+    <div class="ctnr">
+        <div class="distance-shared">
+            <h2 class="h1 line-height-15em title color-black title-home--bottom text-align-center">
+                {{ section.settings.heading }}
+            </h2>
+            <div class="row">
+                {% for column in section.blocks %}
+                <div class="clm distance-box" style=" --w-lg:3; --w-md:6; --w-xs:12;">
+                    <div class="box services__box  text-align-center h-100">
+                        {% if column.settings.image != blank %}
+                            <img src="{{ column.settings.image | image_url }}" alt="" class = "w-100 d-block click-video">
+                        {%- else -%}
+                            {% render 'icon-box' %}
+                        {% endif %}
+                        <h4 class="title-h4 line-height-15em box__title tt-uppercase letter-spacing mt-30">
+                            {{ column.settings.heading }}
+                        </h4>
+                        <div class="desc mt-5">
+                            {{ column.settings.paragraph }}
+                        </div>
+                        <a href="{{ column.settings.link }}" class="btn btn-link  d-inline-block  mt-30 ">
+                            {{ column.settings.button_label }}
+                            {% render 'icon-chevron-right' %}
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{%  schema  %} 
+    {
+        "name": "Services",
+        "class": "section",
+        "max_blocks": 4,
+        "settings": [
+            {
+                "type": "inline_richtext",
+                "id": "heading",
+                "default": "Multicolumn",
+                "label": "Heading"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "column",
+                "name": "Column",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "inline_richtext",
+                        "id": "heading",
+                        "default": "Column",
+                        "label": "Heading"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "paragraph",
+                        "label": "Paragraph",
+                        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button_label",
+                        "default": "See more",
+                        "label": "Button",
+                        "info": "Button label"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Button link"
+                    }
+                ]
+                
+            }
+        ],
+        "presets": [
+        {
+        "name": "Services",
+        "blocks": [
+            {
+            "type": "column"
+            },
+            {
+            "type": "column"
+            },
+            {
+            "type": "column"
+            },
+            {
+            "type": "column"
+            }
+        ]
+        }
+  ]
+
+    }
+{% endschema %}

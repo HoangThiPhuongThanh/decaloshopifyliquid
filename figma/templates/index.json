@@ -1,0 +1,80 @@
+{
+    "sections": {
+      "slider": {
+        "type": "slideshow",
+        "blocks": { 
+          "slide1": {
+            "type": "image",
+            "settings": {
+              "heading": "Title baner",
+              "button_label": "Shop now",
+              "link": ""
+            }
+          },
+          "slide2": {
+            "type": "image",
+            "settings": {
+              "heading": "Title baner",
+              "button_label": "Shop now",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "slide1",
+          "slide2"
+        ]
+      },
+      "featured-collection":{
+        "type": "featured-collection"
+      },
+      "video":{
+        "type": "video"
+      },
+      "featured-product":{
+        "type": "featured-product"
+      },
+      "blog":{
+        "type": "blog" 
+      },
+      "services":{
+        "type": "services",
+        "blocks": {
+          "column1": {
+            "type": "column",
+            "settings": {
+            }
+          },
+          "column2": {
+            "type": "column",
+            "settings": {
+            }
+          },
+          "column3": {
+            "type": "column",
+            "settings": {
+            }
+          },
+          "column4": {
+            "type": "column",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "column1",
+          "column2",
+          "column3",
+          "column4"
+        ]
+      }
+    },
+    "order": [
+      "slider",
+      "featured-collection",
+      "video",
+      "featured-product",
+      "blog", 
+      "services"
+    ]
+  }
