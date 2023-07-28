@@ -53,6 +53,40 @@
 .menu__ul{
     display: block;
 }
+.sub-menu{
+    border: 1px solid #cecece;
+    position: absolute;
+    top: 100%;
+    min-width: 230px;
+    border: 1px solid #f5f5f5;
+    background: #ffffff;
+    margin: 0;
+    transform: scale(1 , 0);
+    transform-origin: 0 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0px 30px 70px 0px rgba(137,139,142,0.15);
+    -moz-box-shadow: 0px 30px 70px 0px rgba(137,139,142,0.15);
+    box-shadow: 0px 30px 70px 0px rgba(137,139,142,0.15);
+    border-radius: 0;
+    padding: 18px 0;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 9;
+}
+.menu_li:hover .sub-menu{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.sub-menu li{
+    min-width: 150px;
+    padding: 10px 15px;
+}
 .header__icon--menu path{
     transform-origin: 50% 50%;
     transition: transform 0.25s ease-in-out;

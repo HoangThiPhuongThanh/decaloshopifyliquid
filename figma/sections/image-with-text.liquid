@@ -22,7 +22,7 @@
           <div class=" h-100">
               <a href="" class="d-block h-100" >
                 {% if section.settings.image != blank %}
-                  <img src="{{ section.settings.image }}" alt="" class="w-100 h-100">
+                  <img src="{{ section.settings.image | image_url  }}" alt="" class="w-100 h-100">
                 {%- else -%}
                   {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
                 {%- endif -%}

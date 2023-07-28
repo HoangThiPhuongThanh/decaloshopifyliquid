@@ -1,14 +1,41 @@
 {
   "sections":{
-    "section0":{
+    "section_0":{
       "type": "insidepage"
     },
-    "section1":{
-      "type": "fqa"
+    "section_1":{
+      "type": "fqa",
+      "blocks": {
+        "block_0": {
+          "type": "text",
+          "settings": {
+            "heading": "Title",
+            "question_1": "Any question",
+            "answer_1": "<p>Answer<\/p>",
+            "question_2": "Any question",
+            "answer_2": "<p>Answer<\/p>",
+            "question_3": "Any question",
+            "answer_3": "<p>Answer<\/p>",
+            "question_4": "Any question",
+            "answer_4": "<p>Answer<\/p>",
+            "question_5": "Any question",
+            "answer_5": "<p>Answer<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_0"
+      ],
+      "settings": {
+      }
+    },
+    "section_2":{
+      "type": "submit-question"
     }
   },
   "order": [
-    "section0",
-    "section1"
+    "section_0",
+    "section_1",
+    "section_2"
   ]
 }

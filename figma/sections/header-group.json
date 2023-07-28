@@ -1,16 +1,16 @@
 {
-    "name": "header",
-    "type": "header",
-    "sections": {
-        "announcement-bar": {
-            "type": "announcement-bar"
-        },
-        "header": {
-            "type": "header"
-        }
+  "name": "header",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar"
     },
-    "order": [
-        "announcement-bar",
-        "header" 
-    ]
+    "header": {
+      "type": "header"
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header" 
+  ]
 }

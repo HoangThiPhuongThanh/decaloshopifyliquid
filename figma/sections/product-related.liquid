@@ -5,11 +5,11 @@
   <div class="distance-shared">
 
       <div class="ctnr">
-          <h2 class ="h1 line-height-15em title --color-black title-home--bottom text-align-center">FEATURED PRODUCT</h2>
+          <h2 class ="h1 line-height-15em title --color-black title-home--bottom text-align-center">{{ section.settings.heading }}</h2>
       </div>
       <div class="ctnr">
-          <div class="row">
-            {% for related_product in collections.all.products %}
+          <div class="row fw-nowrap scroll-x">
+            {% for related_product in collections.all.products limit:4 %}
                 {% unless product.id == related_product.id %}
                   {% assign related_product_tags = related_product.tags | split: ", " %}
               
@@ -62,3 +62,18 @@
   </div>
 {% endif %}
 </section>
+{% schema %}
+    {
+      "name": "Related product",
+      "class": "section",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "RELATED PRODUCT ",
+          "label": "Heading"
+        }
+      ]
+     
+    }
+{% endschema %}

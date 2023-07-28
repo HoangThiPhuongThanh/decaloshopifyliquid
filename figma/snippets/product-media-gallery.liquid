@@ -4,11 +4,21 @@
       <img id="expandedImg" class="expandedImg w-100" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}" >
     {% endif %}
   </div>
-  <div class="product-detail__list-images row">
+  <div class="product-detail__list-images row fw-nowrap scroll-x p-relative">
     {% for image in product.images %}
-      <div class="column clm" style="--w-xs:3;">
+      <div class="column scroll-snap-align-start clm" style="--w-xs:3;">
           <img class="product-detail__image-small w-100" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }} - Ảnh {{ forloop.index }}">
       </div>
+      <a class="prev p-absolute">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="20" viewBox="0 0 11 20" fill="none">
+          <path d="M9.5 18.5L0.999999 9.5L9.5 1" stroke="#171719" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a class="next p-absolute">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M8 3L16.5 12L8 20.5" stroke="#171719" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     {% endfor %}
       {% comment %} <div class="column clm" style="--w-xs:3;">
           <img class="product-detail__image-small w-100" src="./image/product-detail_1.png" alt="img">

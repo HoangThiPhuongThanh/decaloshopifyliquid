@@ -1,22 +1,11 @@
 
-{%- style -%}
-  .is-form{
-    width:45px;
-    height:45px;
-  }
-  .input-qty{
-    height:45px;
-  }
-  .buttons_added{
-    border: 1px solid #797979;
-  }
-{%- endstyle -%}
+{{ 'cart.css' | asset_url | stylesheet_tag }}
 <section class="cart distance-shared border-top">
   {%- if cart != empty -%}
   <div class="ctnr">
     <div class="d-flex jc-space-between align-items-center mb-30">
       <h2 class="h1 line-height-15em letter-spacing color-black text-align-center font-weight-5">Your cart</h2>
-      <a href="" class="">Continue shopping</a>
+      <a href="{{ collection-list.url }}" class="">Continue shopping</a>
     </div>
     <form action="" class="cart-items" >
       <table class="w-100">
@@ -42,7 +31,7 @@
           <tr >
             <td class="pdt-40">
               <div class="cart__img">
-                <a href="">
+                <a href="{{ item.product.url }}">
                   {% if item.image !=blank %}
                     <img src="{{ item.image | image_url: width: 100 }}" alt="">
                   {%-  else -%}
@@ -51,17 +40,23 @@
                 </a>
               </div>
             </td>
-            <td>
+            <td class="">
               <a href="">{{ item.product.title }}</a>
               <p>{{ price.first | money}}</p>
             </td>
-            <td >
+            <td class="text-align-right price-mobile ">
+              <span class="price d-block">
+                {% assign total_price = price.first | times: item.quantity %}
+                {{ total_price | money }}
+              </span>
+            </td>
+            <td class="">
               <div class="d-flex align-items-center">
                 <div class="form-group">
                   <div class="buttons_added">
                     <input class="minus is-form p-relative border-0 bg-transparent" type="button" value="–">
                     <input aria-label="quantity" class="input-qty text-align-center border-0" max="Số tối đa" min="0"
-                      name="" type="number" value="{{ item.quantity }}">
+                      name="" type="" value="{{ item.quantity }}">
                     <input class="plus is-form p-relative border-0 bg-transparent" type="button" value="+">
                   </div>
                 </div>
@@ -74,7 +69,7 @@
                 </div>
               </div>
             </td>
-            <td class="text-align-right">
+            <td class="text-align-right price-desktop">
               <span class="price d-block">
                 {% assign total_price = price.first | times: item.quantity %}
                 {{ total_price | money }}
@@ -83,7 +78,7 @@
           </tr>
           {% endfor %}
         </tbody>
-      </table>
+      </table> 
     </form>
   </div>
   {% else %}

@@ -15,22 +15,22 @@
             {% for tab in section.blocks %}
             <div id="{{ tab.id }}" class="tabcontent tab-item {% if forloop.first %} active {% endif %}">
               {% for i in (1..5) %}
-                {% capture question_i %}section.blocks.settings['question_{{ i }}']{% endcapture %}
-                {% capture answer_i %}section.blocks.settings['answer_{{ i }}']{% endcapture %}
-                {% if question_i != blank and answer_i != blank %}
-                  <div class="box box-fqa border-0" onclick>
-                    <div class="tabcontent-title p-relative">
+                {% capture question %}question_{{ i }}{% endcapture %}
+                {% capture answer %}answer_{{ i }}{% endcapture %}
+                {% if tab.settings[question] != blank %}
+                  <div class="box box-fqa border-0" >
+                    <div class="tabcontent-title faq-page p-relative" aria-expanded="false">
                       <h5 class="h4 title">
-                        {{ question_i | strip_html }}
+                        {{ tab.settings[question] }}
                       </h5>
                       <svg class="tabcontent__icon p-absolute top-0 right-0 bottom-0" width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M21 13L3 13L3 11L21 11L21 13Z"></path>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11 21L11 3L13 3L13 21L11 21Z"></path>
                       </svg>
                     </div>
-                    <div class="tabcontent-detail">
+                    <div class="tabcontent-detail" aria-expanded="true">
                       <div class="tabcontent__desc">
-                        {{ answer_i | strip_html }}
+                        {{ tab.settings[answer] }}
                       </div>
                     </div>
                   </div>
@@ -43,14 +43,14 @@
   </div>
 </section>
 <script>
-  var fqa = document.querySelectorAll(".box-fqa");
-var fq2 = document.querySelectorAll(".tabcontent__icon");
-fqa.forEach((test, index) => { 
-  test.addEventListener('click', () => {
-    fqa[index].classList.toggle('show-click');
-    fq2[index].classList.toggle('show-icon');
+
+var faq = document.getElementsByClassName("box-fqa");
+var i;
+for (i = 0; i < faq.length; i++) {
+  faq[i].addEventListener("click", function () {
+      this.classList.toggle("show-click");
   });
-});
+}
 </script>
 {% schema %}
   {
@@ -58,8 +58,8 @@ fqa.forEach((test, index) => {
     "class": "section",
     "blocks": [
       {
-        "type":"tag",
-        "name": "Tag",
+        "type":"text",
+        "name": "FQA",
         "settings": [
           {
             "type": "inline_richtext",
@@ -68,26 +68,15 @@ fqa.forEach((test, index) => {
             "label": "Heading"
           },
           {
-            "type": "richtext",
-            "id": "paragraph",
-            "label": "Paragraph",
-            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          },
-          {
             "type": "inline_richtext",
             "id": "question_1",
             "default": "Any question ",
             "label": "Question 1"
           },
           {
-            "type": "inline_richtext",
+            "type": "richtext",
             "id": "answer_1",
-            "default": "Answer ",
+            "default": "<p>Answer</p>",
             "label": "Answer 1"
           },
           {
@@ -97,9 +86,9 @@ fqa.forEach((test, index) => {
             "label": "Question 2"
           },
           {
-            "type": "inline_richtext",
+            "type": "richtext",
             "id": "answer_2",
-            "default": "Answer ",
+            "default": "<p>Answer</p>",
             "label": "Answer 2"
           },
           {
@@ -109,9 +98,9 @@ fqa.forEach((test, index) => {
             "label": "Question 3"
           },
           {
-            "type": "inline_richtext",
+            "type": "richtext",
             "id": "answer_3",
-            "default": "Answer ",
+            "default": "<p>Answer</p>",
             "label": "Answer 3"
           },
           {
@@ -121,9 +110,9 @@ fqa.forEach((test, index) => {
             "label": "Question 4"
           },
           {
-            "type": "inline_richtext",
+            "type": "richtext",
             "id": "answer_4",
-            "default": "Answer ",
+            "default": "<p>Answer</p>",
             "label": "Answer 4"
           },
           {
@@ -133,9 +122,9 @@ fqa.forEach((test, index) => {
             "label": "Question 5"
           },
           {
-            "type": "inline_richtext",
+            "type": "richtext",
             "id": "answer_5",
-            "default": "Answer ",
+            "default": " <p>Answer</p> ",
             "label": "Answer 5"
           }
         ]

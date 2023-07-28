@@ -1,60 +1,50 @@
 
 <div class="header__top">
-    
-    <div class="ctnr ctnr-header">
-        <div class="p-relative">
-            {%- for block in section.blocks -%}
-                <p  class="p__header tt-uppercase letter-spacing color-white">
-                {{block.settings.text-announcement}}
-                </p>
-            {% endfor %}
-            {% if  section.settings.show_line_separator == true %}
-                <select name="" id="" class=" select__header letter-spacing p-absolute border-0 bg-transparent top-0 right-0 color-white">
-                    <option value="">Italian</option>
-                    <option value="">Italian</option>
-                    <option value="">Italian</option>
-                    <option value="">Italian</option>
-                </select>
-            {%endif%}
-        </div>
+  <div class="ctnr ctnr-header">
+    <div class="p-relative">
+      {%- for block in section.blocks -%}
+        <p  class="p__header tt-uppercase letter-spacing color-white">
+        {{block.settings.text-announcement}}
+        </p>
+      {% endfor %}
+      {% if  section.settings.show_line_separator == true %}
+        <select name="" id="" class=" select__header letter-spacing p-absolute border-0 bg-transparent top-0 right-0 color-white">
+          <option value="">Italian</option>
+          <option value="">Italian</option>
+          <option value="">Italian</option>
+          <option value="">Italian</option>
+        </select>
+      {%endif%}
     </div>
-   
+  </div>
 </div>
 {% schema %}
+  {
+    "name": "Announcement bar",
+    "class": "Announcement-bar-section",
+    "max_blocks": 5,
+    "settings": [
+      {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "Show selector"
+      }
+    ],
+    "blocks":[
     {
-        "name": "Announcement bar",
-        "class": "Announcement-bar-section",
-        "max_blocks": 5,
-        "settings": [
-            {
-            "type": "checkbox",
-            "id": "show_line_separator",
-            "default": true,
-            "label": "Show selector"
-            }
-        ],
-        "blocks":[
+      "name": "announcement",
+      "type": "announcement",
+      "limit": 1,
+      "settings": [
         {
-            "name": "announcement",
-            "type": "announcement",
-            "limit": 1,
-            "settings": [
-                {
-                "type": "text",
-                "id": "text-announcement",
-                "default": "Announcement bar",
-                "label": "Heading"
-                }
-                
-            ]
+        "type": "text",
+        "id": "text-announcement",
+        "default": "Announcement bar",
+        "label": "Heading"
         }
-        ],
-        "presets":[
-            {
-            "category":"Content",
-            "name":"Announcement bar new"
-            }
-        ]
- 
+      ]
     }
+    ]
+  }
 {% endschema %}

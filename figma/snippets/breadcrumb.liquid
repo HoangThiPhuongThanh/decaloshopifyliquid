@@ -1,10 +1,9 @@
 {% if template == 'product' %}
   <ul class="d-flex breadcrumb__lists">
     <li class="breadcrumb__li p-relative"><a class="breadcrumb__a tt-uppercase" style="color:var(--color-text--secondary)" href="{{ routes.root_url }}">Home</a></li>
-    {% if collection %}
+    {% if collections %}
     <li class="breadcrumb__li p-relative"><a class="breadcrumb__a tt-uppercase" style="color:var(--color-text--secondary)" href="/collections">{{ collections.title }}</a></li>
     {% endif %}
-    <li class="breadcrumb__li p-relative"><a class="breadcrumb__a tt-uppercase" style="color:var(--color-text--secondary)" href="/collections">Collection</a></li>
     <li class="breadcrumb__li p-relative">
       <a href="" class="breadcrumb__a tt-uppercase active">{{ product.title }}</a>
     </li>

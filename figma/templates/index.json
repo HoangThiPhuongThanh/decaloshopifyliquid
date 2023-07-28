@@ -34,8 +34,8 @@
       "featured-product":{
         "type": "featured-product"
       },
-      "blog":{
-        "type": "blog" 
+      "introduce-collection":{
+        "type": "introduce-collection" 
       },
       "services":{
         "type": "services",
@@ -74,7 +74,7 @@
       "featured-collection",
       "video",
       "featured-product",
-      "blog", 
+      "introduce-collection", 
       "services"
     ]
   }

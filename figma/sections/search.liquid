@@ -7,8 +7,7 @@
         <input type="text" name="q" 
           placeholder="Search products..." 
           value="{{ search.terms | escape }}" required
-          class="w-100"
-        >
+          class="w-100">
         <button type="submit" class="d-flex jc-center right-0 top-0 h-100 p-absolute">
           {% render 'icon-search' %}
         </button>
@@ -16,11 +15,9 @@
     </div>
   </div>
   {% if search.results_count > 0 %}
-    
-      <div class="row mt-40">
+    <div class="row mt-40">
       {% for item in search.results %}
-    
-        <div class="clm" style=" --w-lg:3; --w-xs:6;">
+        <div class="clm mb-20" style=" --w-lg:3; --w-xs:6;">
           <div class="box border-0 distance-box h-100">
               <div class="box__img p-relative">
                 {% assign featured_image = item.featured_image | img_url: 'master' %}
@@ -60,9 +57,9 @@
                   </div>
               </div>
           </div>
-      </div>
+        </div>
       {% endfor %}
-      </div>
+    </div>
   {% else %}
     <p>No results found for '{{ search.terms | escape }}'.</p>
   {% endif %}

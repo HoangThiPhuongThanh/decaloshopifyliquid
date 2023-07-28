@@ -1,9 +1,10 @@
-<section class="cart-footer {% if cart == empty %} is-empty{% endif %} ">
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+<section class="cart-footer {% if cart == empty %} d-none{% endif %} ">
   <div class="ctnr">
     <div class="cart-footer__content border-top">
       <div class="distance-shared text-align-right">
-        <div class="totals d-flex jc-right">
-          <h2 class="totals__subtotal">Subtotal</h2>
+        <div class="totals d-flex jc-right align-items-center mb-20">
+          <h2 class="totals__subtotal fw-400">Subtotal</h2>
           <p class="totals__subtotal-value">
             {% assign total_price = 0 %}
             {% for item in cart.items %}
@@ -13,17 +14,12 @@
            {{ total_price | money }}
           </p>
         </div>
-        <small>TTaxes and shipping calculated at checkout </small>
         <div class="cart_checkout">
-       
-            <button type="submit" class="cart__update-button button button--secondary" form="cart">
-              Update
-            </button>
           {% if cart.items == empty %}
             <button disabled class="btn  btn-dark d-inline-block tt-capitalize" >Checkout</button>
           {% else %}
             <form action="/checkout" method="post">
-              <input type="submit" value="Checkout" class="btn  btn-dark d-inline-block tt-capitalize">
+              <input type="submit" value="Checkout" class="btn__checkout btn  btn-dark d-inline-block tt-capitalize">
             </form>
           {% endif %}
         </div>

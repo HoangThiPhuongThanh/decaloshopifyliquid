@@ -139,6 +139,9 @@ input, textarea, option, select{
 .mt-5{
     margin-top: 5px;
 }
+.mt-70{
+    margin-top: 70px;
+}
 .fw-400{
     font-weight: 400;
 }
@@ -200,7 +203,7 @@ input, textarea, option, select{
     border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: transparent;
 }
 .fade {
     -webkit-animation-name: fade;
@@ -276,6 +279,9 @@ input, textarea, option, select{
 }
 .collection__btn--padding{
     padding: 0px;
+}
+.collection__p--with p{
+    color: var(--color-text--success);
 }
 /* section-home_6 */
 .services{
@@ -426,7 +432,7 @@ input, textarea, option, select{
     transform: translate(-50%, -50%);
     cursor: pointer;
 }
-.show-content svg path:nth-child(2){
+.show-click svg path:nth-child(2){
     transform: rotate(90deg);
 }
 .tabcontent {
@@ -451,7 +457,23 @@ input, textarea, option, select{
 .desc-shared--lheight-40{
     line-height: 40px;
 }
-.tabcontent__desc{
+.tabcontent-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+.tabcontent-title[aria-expanded="true"] + .tabcontent-detail {
+max-height: 1000px; /* Adjust this value based on your content's height */
+}
+
+.toggle-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+}
+.tabcontent-detail{
     visibility: hidden;
     opacity: 0;
     -webkit-transform: scale(0.8);
@@ -466,12 +488,13 @@ input, textarea, option, select{
 .tabcontent__desc p{
     margin-bottom: 20px;
 }
-.show-click .tabcontent__desc{
+.show-click .tabcontent-detail{
     visibility:visible;
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
     transition: all ease .3s;
+    max-height: 100%;
     height:auto;
     padding-bottom: 20px;
 }
@@ -542,11 +565,15 @@ input, textarea, option, select{
     margin-bottom: 85px !important;
 }
 /* collection */
+
 #banner-collection{
     padding-block: 30px;
 }
 .collection__title{
     margin-bottom: 5px !important;
+}
+.collection__desc p{
+    color: var( --color-text--success);
 }
 .product__filter{
     padding-bottom: 40px;
@@ -764,16 +791,24 @@ blockquote{
 .product-detail-tabcontent__ul{
     margin-bottom: 40px;
 }
-.product-detail-tabcontent__li{
-    margin-left: 15px;
+.product-detail-tabcontent__ul p{
+    padding-left: 15px;
     font-weight: 400;
     line-height: 24px;
     color: var( --color-text--danger);
-    list-style: disc;
+    position: relative;
     margin-bottom: 15px;
 }
-.product-detail-tabcontent__li::marker {
-    color: black;
+.product-detail-tabcontent__ul p::after {
+    color: #000;
+    position: absolute;
+    content: "";
+    height: 6px;
+    width: 6px;
+    border-radius: 100%;
+    background-color: black;
+    left: 0;
+    bottom: 35%;
 }
 .product-detail__tabcontent .box{
     padding-block: 80px;

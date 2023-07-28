@@ -15,6 +15,7 @@
     --font-size--success: 1.6rem;
     --font-size--danger: 1.8rem;
     --font-size--warning: 1.5rem;
+    --font-size--20: 2.0rem;
     --bg--primary: #171719;
     --bg--secondary:#fff;
     --bg--success:#F5F5F5;
@@ -52,6 +53,9 @@ img{
 }
 strong{
     color: #000;
+}
+svg{
+    cursor: pointer;
 }
 .d-flex{
     display: flex;
@@ -109,6 +113,9 @@ strong{
 }
 .fw-600{
     font-weight: 600;
+}
+.fw-400{
+    font-weight: 400;
 }
 .p-relative{
     position: relative;

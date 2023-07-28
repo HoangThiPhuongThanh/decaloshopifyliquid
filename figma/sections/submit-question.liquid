@@ -1,0 +1,29 @@
+<section class="question" id="question">
+  <div class="ctnr">
+    <div class="distance-shared text-align-center">
+      <p class="h3 color-black question__content">Do you have any other questions? 
+        <a href="{{ section.settings.link }}">{{ section.settings.button_label }}</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Submit question",
+    "class": "section",
+    "settings": [ 
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "Contact us now",
+        "label": "Button",
+        "info": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      }
+    ]
+  }
+{% endschema %}
