@@ -9,7 +9,7 @@
             {%-  else -%}
               {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg  w-100 h-100' }}
             {% endif %}
-            <video >
+            <video controls autoplay >
               <source src="{{ section.settings.video_embed | video_tag }}">
             </video>
             <div class="btn-click-video  p-absolute right-0 left-0 bottom-0 top-0 d-flex align-items-center jc-center">
@@ -53,43 +53,43 @@
     </div>
 </section>
 {% schema %}
-    {
-      "name": "Video",
-      "class": "section-video",
-      "settings": [
-        {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        },
-        {
-            "type": "video",
-            "id": "video_embed",
-            "label": "Video embed"
-        },
-        {
-            "type": "inline_richtext",
-            "id": "heading",
-            "default": "Title video",
-            "label": "Heading"
-        },
-        {
-            "type": "richtext",
-            "id": "paragraph",
-            "label": "Paragraph"
-        },
-        {
-            "type": "text",
-            "id": "button_label",
-            "default": "Shop now",
-            "label": "Button",
-            "info": "Button label"
-        },
-        {
-            "type": "url",
-            "id": "link-btn",
-            "label": "Link button"
-        }
-      ]
-    }
+  {
+    "name": "Video",
+    "class": "section-video",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "video",
+        "id": "video_embed",
+        "label": "Video embed"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Title video",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "Shop now",
+        "label": "Button",
+        "info": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "link-btn",
+        "label": "Link button"
+      }
+    ]
+  }
 {% endschema %}

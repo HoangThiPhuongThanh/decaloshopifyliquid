@@ -8,12 +8,23 @@
         </p>
       {% endfor %}
       {% if  section.settings.show_line_separator == true %}
-        <select name="" id="" class=" select__header letter-spacing p-absolute border-0 bg-transparent top-0 right-0 color-white">
-          <option value="">Italian</option>
-          <option value="">Italian</option>
-          <option value="">Italian</option>
-          <option value="">Italian</option>
-        </select>
+      <select
+        class="select__header letter-spacing p-absolute border-0 bg-transparent top-0 right-0 color-white"
+        name="locale_code"
+        aria-labelledby="FooterLanguageLabelNoScript">
+        {%- for language in localization.available_languages -%}
+          <option
+            value="{{ language.iso_code }}"
+            lang="{{ language.iso_code }}"
+            {%- if language.iso_code == localization.language.iso_code -%}
+              selected
+            {%- endif -%}
+          >
+            {{ language.endonym_name | capitalize }}
+          </option>
+        {%- endfor -%}
+      </select>
+    
       {%endif%}
     </div>
   </div>
