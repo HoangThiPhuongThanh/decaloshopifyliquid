@@ -1,0 +1,42 @@
+<div class="distance-shared border-top">
+  <div class="ctnr">
+    <div class="row">
+      {% for article in blog.articles %}
+        {% assign featured_image = article.image | img_url: 'master' %}
+        <div class="clm scroll-snap-align-start" style=" --w-lg:4; --w-xs:6;">
+          <div class="box border-0 distance-box h-100">
+            <div class="box__img p-relative">
+              <a href="{{ article.url }}" class = "d-block">
+                {% if article.image != blank %}
+                  <img src="{{featured_image}} " alt=""  class="w-100 products__image">
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </a>
+            </div>
+            <div class="box__content product__content text-align-center d-flex" style="flex-direction: column">
+              <div style="flex: 1;">
+                <h3 class="h4 line-height-15em title product__title mt-20">{{ article.title }}</h3>
+              </div>
+              <div>
+                <div class="">
+                  {{ article.excerpt }}
+                </div>
+                <a href="" class="d-block btn-secondary mt-20 product__btn">
+                  Xem thêm 
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% assign myList = '["Low stock","Bundle","New","Sale","Limited"]' | split: ','   %}
+<ul>
+  {% for list in  myList %}
+    <li>{{ list | replace: '"', '' | replace: '\', ''  | remove: "[" | remove: "]" }}</li>
+  {% endfor %}
+</ul>

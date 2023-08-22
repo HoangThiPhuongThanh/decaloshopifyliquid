@@ -1,0 +1,28 @@
+{{ 'customers.css' | asset_url | stylesheet_tag }}
+<div class="border-top distance-shared">
+  <div class="ctnr">
+    <div class="row jc-center text-align-center">
+      <div class="clm " style="--w-xs: 12;--w-sm: 8; --w-md:5;">
+        <h2 class="h1 line-height-15em mb-40">Login</h2>
+        <form method="post" action="" id="customer__login">
+          <input type="hidden" name="form_type" value="customer_login">
+          <input type="hidden" name="utf8" value="✓">
+          <div class="field mt-20">
+            <input type="email" name="customer[email]" id="CustomerEmail" class="w-100 customer__input" placeholder="Email">
+          </div>
+          <div class="field mt-20">
+            <input type="password" value="" name="customer[password]" class="w-100 customer__input" id="CustomerPassword" autocomplete="current-password" placeholder="Password">
+            <label for="CustomerPassword" hidden>
+              Password
+            </label>
+          </div>
+          <a href="" class="d-block mt-10 forgot-password text-decoration-underline">Forgot your password?</a>
+          <button class="customer__button btn btn-dark mt-40">Sign in</button>
+          <a href="{{ routes.account_register_url }}" class="d-block text-decoration-underline mt-20">Create account</a>
+          <input type="hidden" name="return_url" value="">
+          <input type="hidden" name="oseid" value="U6KkzJVrnBpxJ4rMgihutENA">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

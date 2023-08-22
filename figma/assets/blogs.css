@@ -1,0 +1,10 @@
+.article__excerpt{
+  padding: 15px;
+  background-color: #f3f5f0;
+  margin-bottom: 15px;
+  font-size: var( --heading-4);
+  text-align: justify;
+}
+p{
+  font-size: var( --heading-4);
+}

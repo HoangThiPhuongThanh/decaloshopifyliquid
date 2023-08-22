@@ -1,0 +1,26 @@
+{{ 'blogs.css' | asset_url | stylesheet_tag }}
+{% assign featured_image = article.image | img_url: 'master' %}
+<div class="distance-shared border-top">
+  <div class="ctnr">
+    <div class="article__img">
+      <a href="{{ article.url }}" class = "d-block">
+        {% if article.image != blank %}
+          <img src="{{featured_image}} " alt=""  class="w-100">
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </a>
+    </div>
+    <div class="article__content">
+      <div class="article__detail">
+        <h2 class="h1 title line-height-15em"> {{ article.title }}</h2>
+      </div>
+      <div class="article__excerpt">
+        {{ article.excerpt }}
+      </div>
+      <div class="article__description">
+        {{ article.content }}
+      </div>
+    </div>
+  </div>
+</div>

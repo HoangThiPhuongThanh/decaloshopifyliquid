@@ -121,6 +121,9 @@ input, textarea, option, select{
 .mb-70{
     margin-bottom: 70px !important;
 }
+.mt-10{
+    margin-top: 10px;
+}
 .mt-20{
     margin-top: 20px;
 }

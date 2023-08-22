@@ -1,0 +1,14 @@
+.customer__input{
+  height: 4.5rem;
+  border: 1px solid var(--bg--primary);
+  padding-inline: 20px;
+  border-radius: 10px;
+  
+}
+.customer__button{
+  text-transform: none;
+  border-radius: 10px;
+}
+.forgot-password{
+  text-align: left;
+}

@@ -1,0 +1,27 @@
+{{ 'customers.css' | asset_url | stylesheet_tag }}
+<div class="border-top distance-shared">
+  <div class="ctnr">
+    <div class="row jc-center text-align-center">
+      <div class="clm " style="--w-xs: 12;--w-sm: 8; --w-md:5;">
+        <h2 class="h1 line-height-15em mb-40">Create account </h2>
+        {%- form 'create_customer' -%}
+      
+          <div class="field mt-20">
+            <input type="text" 
+                name="customer[firstname]"  {% if form.last_name %}  value="{{ form.last_name }}" {% endif %} id="CustomerEmail" class="w-100 customer__input" placeholder="First name">
+          </div>
+          <div class="field mt-20">
+            <input type="text" value="" name="customer[lastname]" class="w-100 customer__input" id="CustomerPassword" placeholder="Last name">
+          </div>
+          <div class="field mt-20">
+            <input type="email" value="" name="customer[email]" class="w-100 customer__input" id="CustomerPassword" placeholder="Email">
+          </div>
+          <div class="field mt-20">
+            <input type="password" value="" name="customer[password]" class="w-100 customer__input" id="CustomerPassword" placeholder="Password">
+          </div>
+          <button class="customer__button btn btn-dark mt-40">Create</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
