@@ -1,4 +1,4 @@
-<section id="register " class="ctnr">
+<section id="register " class="ctnr color-{{ section.settings.color_scheme }}">
   <div class="row jc-center" >
     <div class="clm" style=" --w-lg:10; --w-xs: 12; height: -webkit-fill-available;"></div>
       <div class="distance-shared">
@@ -99,12 +99,12 @@
   </div>
 </section>
 
-{% javascript %}
+<script>
   document.getElementById("ContactForm").addEventListener("submit", function(event) {
     event.preventDefault();
     document.getElementById("successMessage").style.display = "block";
   });
-{% endjavascript %}
+</script>
 
 {% schema %}  
   {
@@ -122,6 +122,12 @@
         "id": "paragraph",
         "label": "Paragraph",
         "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-2"
       }
     ]
 

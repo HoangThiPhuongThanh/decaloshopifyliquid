@@ -1,4 +1,4 @@
-<section id="" class="product">
+<section id="" class="product color-{{ section.settings.color_scheme }}">
     {% assign current_product_tags = product.tags | split: ", " %}
     {% assign common_tags = current_product_tags | where_exp: "tag", "related_product_tags contains tag" %}
     {% if common_tags.size > 0 %}
@@ -44,7 +44,7 @@
                             <form action="/cart/add" method="post" id="">
                               <input type="hidden" name="id" value="{{ related_product.variants.first.id }}">
                               <div>
-                                <button type="submit" class ="btn btn-secondary mt-20 product__btn "
+                                <button type="submit" class ="btn border bg-white mt-20 product__btn "
                                     {% if related_product.size <= 1 %}style="display: none;"{% endif %}>
                                     Add to Cart 
                                 </button>
@@ -63,17 +63,23 @@
 {% endif %}
 </section>
 {% schema %}
-    {
-      "name": "Related product",
-      "class": "section",
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "RELATED PRODUCT ",
-          "label": "Heading"
-        }
-      ]
-     
-    }
+  {
+    "name": "Related product",
+    "class": "section",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "RELATED PRODUCT ",
+        "label": "Heading"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-2"
+      }
+    ]
+    
+  }
 {% endschema %}

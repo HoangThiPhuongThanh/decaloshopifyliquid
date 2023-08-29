@@ -1,5 +1,6 @@
+{{ 'customize-column.css' | asset_url | stylesheet_tag }}
 <footer>
-    <div class="footer bg-black">
+    <div class="footer color-{{ section.settings.color_scheme }}">
         <div class="ctnr">
             <div class="logo__footer text-align-center">
                 <a href="{{ routes.root_url }}">
@@ -8,7 +9,7 @@
                     {%- else -%}
                       <span class="h2">{{ shop.name }}</span>
                     {% endif %}
-                </a>
+                </a> 
             </div>
             <div class="footer-st">
               <div class="row">
@@ -160,6 +161,12 @@
       "id": "paragraph",
       "default": "<p>De Carlo Nicholas- VAT number: 07020260480- REA: FI-674952 - Registered office: Via di San Quirico a Ruballa 15, 50012, Bagno a Ripoli (FI), Italy</p>",
       "label": "Coppyright"
+    },
+    { 
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
     }
   ],
   "blocks": [

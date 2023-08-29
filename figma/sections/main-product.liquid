@@ -1,4 +1,4 @@
-<section class="product-detail distance-shared">
+<section class="product-detail distance-shared color-{{ section.settings.color_scheme }}">
   <div class="ctnr">
     <div class="breadcrumb">
       {% render 'breadcrumb' %}
@@ -103,6 +103,12 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        { 
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "default": "background-2"
         }
       ]
    

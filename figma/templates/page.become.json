@@ -1,10 +1,12 @@
 {
-  "sections":{
-    "section0":{
-      "type": "insidepage"
+  "sections": {
+    "section0": {
+      "type": "insidepage",
+      "settings": {}
     },
-    "section1":{
-      "type": "become"
+    "section1": {
+      "type": "become",
+      "settings": {}
     }
   },
   "order": [

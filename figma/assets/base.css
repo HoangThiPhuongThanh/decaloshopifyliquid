@@ -1,0 +1,48 @@
+:root{
+  
+  --font-size--primary: calc(var(--font-body-scale) * 3.0rem);
+  --font-size--secondary: calc(var(--font-body-scale) * 1.4rem);
+  --font-size--success: calc(var(--font-body-scale) * 1.6rem);
+  --font-size--danger: calc(var(--font-body-scale) * 1.8rem);
+  --font-size--warning: calc(var(--font-body-scale) * 1.5rem);
+  --font-size--20: calc(var(--font-body-scale) * 2.0rem);
+  --bg--primary: #171719;
+  --bg--secondary:#fff;
+  --bg--success:#F5F5F5;
+  --bg--danger:#ECECEC;
+  --bg--warning: #9EA0A8;
+  --bg--opacity: rgba(0, 0, 0, 0.445);
+  --color-text--primary: #171719;
+  --color-text--secondary:#BABCC3;
+  --color-text--success:#fff;
+  --color-text--danger:#84848E;
+  --color-text--price:#555562;
+  /* --container: 100%; */
+  --container--secondary: 100%;
+  --gutter: 7.5px;
+}
+.color-white{
+  color: var(--color-text--success);
+}
+.color-black{
+  color: var (--color-text--primary);
+}
+.background{
+  background-color: var( --color-background);
+}
+.color-text{
+  color: var(--color-text);
+}
+.background-btn{
+  background-color: var(--color-background--btn);
+}
+.color-text-btn{
+  color: var(--color-text--btn);
+}
+.color-label--btn{
+  color: var( --color-label--btn);
+}
+
+.border{
+  border: 1px solid var( --bg--primary);
+}

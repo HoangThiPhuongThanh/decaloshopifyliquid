@@ -1,6 +1,6 @@
 /*---------- title -----------*/
 h1, .h1{
-    font-size: var(--heading-1);
+    font-size: var(--heading-1); 
 }
 h2, .h2{
     font-size: var(--heading-2);
@@ -15,7 +15,15 @@ h5, .h5{
     line-height: 1.7em;
     font-size: var(--heading-5);
 }
-
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight) ;
+}
+p{
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight) ;
+    font-size: var(--font-size--secondary);
+}
 .line-height-15em{
     line-height: 1.5em;
 }
@@ -30,14 +38,11 @@ h5, .h5{
     font-weight: 400;
     font-size: var(--font-size--secondary);
     line-height: 24px;
-    color: var(--color-text--primary);
     padding: 12px 32px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 0;
-    background-color: transparent;
     cursor: pointer;
-    font-family: var(---font-family--l);
 }
 .btn-primary{
     background-color: var( --bg--secondary);
@@ -53,12 +58,11 @@ h5, .h5{
     color: var(--color-text--success);
 }
 p{
-    color: var(--color-text--danger);
+    color: #BABABF;
     line-height: 1.7em;
-    font-size: var( --font-size--secondary);
 }
 input, textarea, option, select{
-    font-family: var(--font-family--l);
+    font-family: var(-font-body-family);
 }
 .box{
     background-color: var(--bg--secondary);
@@ -79,6 +83,7 @@ input, textarea, option, select{
 }
 .scroll-x.row{
     flex-wrap: nowrap !important;
+    /* padding-right: 20px; */
 }
 .scroll-x::-webkit-scrollbar {
     width: 0px;
@@ -88,12 +93,7 @@ input, textarea, option, select{
     color: var( --color-text--price);
     line-height: 24px;
 }
-.color-white{
-    color: var(--bg--secondary);
-}
-.color-black{
-    color: var(--bg--primary);
-}
+
 .bg-white{
     background-color: var(--bg--secondary);
 }
@@ -173,9 +173,7 @@ input, textarea, option, select{
     margin-bottom: 25px;
 }
 /* banner */
-.banner__content{
-    padding: 215px 0px 15px 0px;
-}
+
 .banner__title{
     margin-bottom: 15px;
 }
@@ -241,9 +239,6 @@ input, textarea, option, select{
     height: 222px;
 }
 /* st2-home */
-#st2-home .box{
-    background-color: var( --bg--success);
-}
 .video__btn{
     width: 27px;
     height: 27px;
@@ -300,7 +295,7 @@ input, textarea, option, select{
 }
 .services__box{
     background-color: var(--bg--secondary);
-    padding: 50px 20px;
+    
 }
 /* -------- end homepage -------- */
 
@@ -422,10 +417,10 @@ input, textarea, option, select{
     margin-right: 0px;
 }
 .tab__btn:hover{
-    color: var(--text--primary);
+    color: var( --color-text--primary);
 }
 .tab__btn.active {
-    color: var(--text--primary)
+    color: var( --color-text--primary)
 }
 .tabcontent-title{
     padding: 40px 30px 40px 0px;

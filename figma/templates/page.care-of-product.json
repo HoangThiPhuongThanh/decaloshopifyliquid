@@ -1,37 +1,37 @@
 {
-  "sections":{
-    "section0":{
-      "type": "insidepage"
+  "sections": {
+    "section0": {
+      "type": "insidepage",
+      "settings": {}
     },
-    "section1":{
+    "section1": {
       "type": "note-product",
       "blocks": {
         "column1": {
           "type": "column",
-          "settings": {
-          }
+          "settings": {}
         },
         "column2": {
           "type": "column",
-          "settings": {
-          }
+          "settings": {}
         },
         "column3": {
           "type": "column",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
         "column1",
         "column2",
         "column3"
-      ]
+      ],
+      "settings": {}
     },
-    "section2":{
-      "type": "banner-text"
+    "section2": {
+      "type": "banner-text",
+      "settings": {}
     },
-    "section3":{
+    "section3": {
       "type": "image-with-text",
       "blocks": {
         "content0": {
@@ -59,8 +59,7 @@
         "content1",
         "content2"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

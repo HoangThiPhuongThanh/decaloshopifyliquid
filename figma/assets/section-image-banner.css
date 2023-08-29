@@ -1,0 +1,26 @@
+.banner__adapt_image{
+  padding: 215px 0px 15px 0px;
+}
+.banner__large {
+  padding: 173px 0px 12px 0px;
+}
+.banner__medium{
+  padding: 131px 0px 9px 0px;
+}
+.banner__small{
+  padding: 86px 0px 6px 0px;
+}
+@media (min-width: 768px){
+  .banner__adapt_image {
+    padding: 448px 0 50px;
+  }
+  .banner__large {
+    padding: 358px 0 40px;
+  }
+  .banner__medium{
+    padding: 268px 0 30px;
+  }
+  .banner__small{
+    padding: 178px 0 20px;
+  }
+}

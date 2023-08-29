@@ -1,5 +1,6 @@
+{{ 'introduce-collection.css' | asset_url | stylesheet_tag }}
 {% assign introcollection  = section.settings %}
-<section id="st4-home" class=" p-relative collection">
+<section id="st4-home" class=" p-relative collection introduce-collection__{{ section.settings.slide_height }} color-{{ section.settings.color_scheme }}">
   <div class="p-absolute top-0 left-0 w-100 h-100">
     {% if  introcollection.image != blank %}
       <img class="w-100 h-100" src="{{ introcollection.image |  image_url }}" alt="">
@@ -9,7 +10,7 @@
   </div>
   <div class="p-relative w-100">
     <div class="ctnr w-100">
-      <h2 class ="h3 line-height-15em title color-white mb-20 ">{{ introcollection.heading }}</h2>
+      <h2 class ="{{ section.settings.heading_size }} line-height-15em title mb-20 ">{{ introcollection.heading }}</h2>
       <div class="collection__p--with">
         {{ introcollection.paragraph}}
       </div>
@@ -36,8 +37,32 @@
       {
         "type": "inline_richtext",
         "id": "heading",
-        "default": "Blog",
+        "default": "Title",
         "label": "Heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h4",
+            "label": "Extra Small"
+          },
+          {
+            "value": "h3",
+            "label": "Small"
+          },
+          {
+            "value": "h2",
+            "label": "Medium"
+          },
+          {
+            "value": "h1",
+            "label": " Large "
+          }
+        ],
+        "default": "h3",
+        "label": "Heading size"
       },
       {
         "type": "richtext",
@@ -54,8 +79,38 @@
       },
       {
         "type": "url",
-        "id": "link",
+        "id": "link", 
         "label": "Button link"
+      },
+      {
+        "type": "select",
+        "id": "slide_height",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "Adapt to first image"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          }
+        ],
+        "default": "adapt_image",
+        "label": "Slide height"
+      },
+      { 
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
       }
     ],
     "blocks": [

@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "tag": {
+      "type": "tab-product",
+      "blocks": {
+        "tab1": {
+          "type": "tag",
+          "settings": {
+            "heading": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu <\/p>"
+          }
+        },
+        "tab2": {
+          "type": "tag",
+          "settings": {
+            "heading": "Title 2",
+            "paragraph": "<ul><li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu <\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "tab1",
+        "tab2"
+      ],
+      "settings": {}
+    },
+    "product-related": {
+      "type": "product-related",
+      "settings": {}
+    },
+    "services": {
+      "type": "services",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {}
+        },
+        "column2": {
+          "type": "column",
+          "settings": {}
+        },
+        "column3": {
+          "type": "column",
+          "settings": {}
+        },
+        "column4": {
+          "type": "column",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3",
+        "column4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "tag",
+    "product-related",
+    "services"
+  ]
+}

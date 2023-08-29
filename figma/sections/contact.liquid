@@ -1,4 +1,6 @@
-<section id="support" class="distance-shared">
+<section id="support" class="distance-shared color-{{ section.settings.color_scheme }}">
+  {%  assign cl_desktop = 12 | divided_by:  section.settings.columns_desktop   %}
+  {%  assign cl_mobile = 12 | divided_by:  section.settings.columns_mobile   %}
   <div class="ctnr">
       <h2 class="h1 line-height-15em title support__title text-align-center">
         {{ section.settings.heading }}
@@ -8,7 +10,7 @@
       </div>
       <div class="row">
         {%- for contact in section.blocks -%}
-          <div class="clm" style=" --w-lg:3; --w-md:6; --w-xs:12;">
+          <div class="clm" style=" --w-lg:{{ cl_desktop }}; --w-md:6; --w-xs:{{ cl_mobile }};">
               <div class="box support__box--padding distance-box text-align-center">
                   <div class="mb-30 support__icon">
                     {{ contact.settings.svg }}
@@ -49,6 +51,30 @@
         "id": "paragraph2",
         "label": "Opening hours",
         "default": "<p>Monday-Friday: 09: 00-18: 30</p"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-2"
+      },
+      {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 4,
+        "label": "Column desktop"
+      },
+      {
+        "type": "range",
+        "id": "columns_mobile",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 1,
+        "label": "Column mobile"
       }
     ],
     "blocks": [

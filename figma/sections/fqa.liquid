@@ -1,4 +1,4 @@
-<section class="tabs" id="tabs">
+<section class="tabs color-{{ section.settings.color_scheme }}" id="tabs">
   <div class="distance-shared">
       <div class="tabs__link">
           <div class="ctnr">
@@ -56,6 +56,14 @@ for (i = 0; i < faq.length; i++) {
   {
     "name": "Tab FQA",
     "class": "section",
+    "settings": [
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-2"
+      }
+    ],
     "blocks": [
       {
         "type":"text",

@@ -1,38 +1,39 @@
 {
-  "sections":{
-    "section":{
-      "type": "insidepage"
+  "sections": {
+    "section": {
+      "type": "insidepage",
+      "settings": {}
     },
-    "section1":{
-      "type": "video-history"
+    "section1": {
+      "type": "video-history",
+      "settings": {}
     },
-    "section2":{
+    "section2": {
       "type": "main-history",
       "blocks": {
         "column1": {
           "type": "history",
-          "settings": {
-          }
+          "settings": {}
         },
         "column2": {
           "type": "history",
-          "settings": {
-          }
+          "settings": {}
         },
         "column3": {
           "type": "history",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
         "column1",
         "column2",
         "column3"
-      ]
+      ],
+      "settings": {}
     },
-    "section3":{
-      "type": "history-why-choose"
+    "section3": {
+      "type": "history-why-choose",
+      "settings": {}
     }
   },
   "order": [

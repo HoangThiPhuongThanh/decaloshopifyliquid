@@ -1,8 +1,10 @@
-<section id="st2-home" class="discover">
-  <div class="ctnr">
-    <div class="distance-shared">
-      <div class="box border-0 d-flex fw-wrap">
-        <div class="" style=" --w-lg:6; --w-xs:12;">
+{{ 'image-with-text.css' | asset_url | stylesheet_tag }}
+{% render 'general-distance' %}
+<section id="st2-home" class="discover bg-white">
+  <div class="ctnr {% if section.settings.full_width == true %} full-width{% endif %}">
+    <div class=" section-{{ section.id }}-padding">
+      <div class="box border-0 d-flex fw-wrap color-{{ section.settings.color_scheme }} product--{{ section.settings.media_position }}">
+        <div class="{% if  section.settings.media_position == 'right' %} order2 {% endif %}" style=" --w-lg:6; --w-xs:12; ">
           <div class="box__video cl-video p-relative h-100">
             {% if section.settings.image != blank %}
               <img src="{{ section.settings.image | image_url }}" alt="" class = "w-100 h-100 d-block click-video">
@@ -19,9 +21,9 @@
             </div>
           </div>
         </div>
-        <div class="" style=" --w-lg:6; --w-xs:12;">
-          <div class="box__content discover__content">
-            <h2 class ="h1 line-height-15em title color-black mb-20">
+        <div class="" style=" --w-lg:6; --w-xs:12; ">
+          <div class="box__content discover__content image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }}">
+            <h2 class ="{{ section.settings.heading_size }} line-height-15em title color-text mb-20">
                 {{ section.settings.heading }}
             </h2>
             <div class="mb-70">
@@ -34,13 +36,15 @@
                 </p>
               {% endif %}
             </div>
-            <a  href="{{ section.settings.link-btn }}" class ="btn d-inline-block btn-primary">
-              {% if section.settings.button_label != blank %}
-                {{  section.settings.button_label}}
-              {%- else -%}
-                Read more
-              {% endif %}
-            </a>
+            <div>
+              <a  href="{{ section.settings.link-btn }}" class ="btn d-inline-block background-btn">
+                {% if section.settings.button_label != blank %}
+                  {{  section.settings.button_label}}
+                {%- else -%}
+                  Read more
+                {% endif %}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -63,6 +67,23 @@
         "label": "Image"
       },
       {
+      "type": "select",
+      "id": "media_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+        "default": "left",
+        "label": "Desktop media position",
+        "info": "Position is automatically optimized for mobile."
+      },
+      {
         "type": "video",
         "id": "video_embed",
         "label": "Video embed"
@@ -74,10 +95,35 @@
         "label": "Heading"
       },
       {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h4",
+            "label": "Extra Small"
+          },
+          {
+            "value": "h3",
+            "label": "Small"
+          },
+          {
+            "value": "h2",
+            "label": "Medium"
+          },
+          {
+            "value": "h1",
+            "label": " Large "
+          }
+        ],
+        "default": "h1",
+        "label": "Heading size"
+      },
+      {
         "type": "richtext",
         "id": "paragraph",
         "label": "Paragraph"
       },
+      
       {
         "type": "text",
         "id": "button_label",
@@ -89,6 +135,74 @@
         "type": "url",
         "id": "link-btn",
         "label": "Link button"
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left",
+        "label": "Desktop content alignment"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "inverse-1"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Make products full width",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "label": "Padding-top desktop",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "label": "Padding-bottom desktop",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "label": "Padding-top mobile",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "unit": "px",
+        "label": "Padding-bottom mobile",
+        "default": 40
       }
     ]
   }

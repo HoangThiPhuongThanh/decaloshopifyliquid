@@ -1,7 +1,8 @@
 {%  assign video = section.settings %} 
-<section id="stt1-history " class="birth ctnr distance-shared ">
-  <div class="row jc-center">
-      <div class="clm video__history" style=" --w-lg:10; --w-xs: 12; height: -webkit-fill-available;">
+<section id="stt1-history " class="birth  color-{{ section.settings.color_scheme }}">
+  <div class="ctnr  distance-shared">
+    <div class="row jc-center">
+      <div class="clm video__history" style="  {% if section.settings.layout == 'row_container' %} --w-lg:8;  {% endif %} height: -webkit-fill-available;">
           <div class="box__video cl-video p-relative ">
             {%- if video.image != blank -%}
               <img src="{{ video.image | image_url }}" alt="" class="d-block w-100 video-his">
@@ -23,6 +24,7 @@
           </h2>
           {{ video.paragraph }}
       </div>
+    </div>
   </div>
 </section>
 <section class="modal-video">
@@ -37,26 +39,49 @@
     "class": "section-video",
     "settings": [
       {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
       },
       {
-          "type": "video",
-          "id": "video_embed",
-          "label": "Video"
+        "type": "video",
+        "id": "video_embed",
+        "label": "Video"
       },
       {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "Title video",
-          "label": "Heading"
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Title video",
+        "label": "Heading"
       },
       {
-          "type": "richtext",
-          "id": "paragraph",
-          "label": "Paragraph",
-          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu </p>"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-2"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          
+          {
+            "value": "row_container",
+            "label": "Row container"
+          },
+          {
+            "value": "section_container",
+            "label": "Section container"
+          }
+        ],
+        "default": "row_container",
+        "label": "Row container"
       }
     ]
   }

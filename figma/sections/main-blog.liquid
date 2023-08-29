@@ -34,9 +34,4 @@
   </div>
 </div>
 
-{% assign myList = '["Low stock","Bundle","New","Sale","Limited"]' | split: ','   %}
-<ul>
-  {% for list in  myList %}
-    <li>{{ list | replace: '"', '' | replace: '\', ''  | remove: "[" | remove: "]" }}</li>
-  {% endfor %}
-</ul>
+

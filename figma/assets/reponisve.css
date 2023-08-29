@@ -29,9 +29,6 @@
     .p__header{
         text-align: center;
     }
-    .header__logo img{
-        height: 70px;
-    }
     .header__bottom{
         padding: 20px 0px;
     }
@@ -53,9 +50,6 @@
         margin-bottom: 20px;
     }
 /* banner */
-    .banner__content{
-        padding: 448px 0px 50px 0px;
-    }
     .banner__title{
         margin-bottom: 20px;
     }
@@ -91,7 +85,6 @@
     }
     .product__title{
         font-weight: 600;
-        font-family: Lato600;
     }
 /* st4-home */
     .collection{
@@ -294,7 +287,7 @@
 /* ----- home ----- */
 /* shared */
     .distance-shared{
-        padding: 100px 0px;
+       margin: var(--spacing-sections-desktop) 0px;
     }
 /* end shared */
 

@@ -1,9 +1,10 @@
 {
-  "sections":{
-    "section_0":{
-      "type": "insidepage"
+  "sections": {
+    "section_0": {
+      "type": "insidepage",
+      "settings": {}
     },
-    "section_1":{
+    "section_1": {
       "type": "fqa",
       "blocks": {
         "block_0": {
@@ -26,11 +27,11 @@
       "block_order": [
         "block_0"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
-    "section_2":{
-      "type": "submit-question"
+    "section_2": {
+      "type": "submit-question",
+      "settings": {}
     }
   },
   "order": [

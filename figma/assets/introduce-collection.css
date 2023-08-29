@@ -1,0 +1,26 @@
+.introduce-collection__adapt_image {
+  padding: 74px 0;
+}
+.introduce-collection__large {
+  padding: 64px 0;
+}
+.introduce-collection__medium{
+  padding: 54px 0;
+}
+.introduce-collection__small{
+  padding: 44px 0;
+}
+@media (min-width: 768px){
+  .introduce-collection__adapt_image {
+    padding: 182px 0;
+  }
+  .introduce-collection__large {
+    padding: 162px 0;
+  }
+  .introduce-collection__medium{
+    padding: 132px 0;
+  }
+  .introduce-collection__small{
+    padding: 102px 0;
+  }
+}

@@ -3,35 +3,32 @@
   "type": "footer",
   "sections": {
     "footer": {
-      "type":  "footer",
+      "type": "footer",
       "blocks": {
         "column1": {
           "type": "link_list",
-          "settings": {
-          }
+          "settings": {}
         },
         "column2": {
           "type": "text",
-          "settings": {
-          }
+          "settings": {}
         },
         "column3": {
           "type": "link_list",
-          "settings": {
-          }
+          "settings": {}
         },
         "column4": {
           "type": "search",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
-      "column1",
-      "column2",
-      "column3",
-      "column4"
-      ]
+        "column1",
+        "column2",
+        "column3",
+        "column4"
+      ],
+      "settings": {}
     }
   },
   "order": [

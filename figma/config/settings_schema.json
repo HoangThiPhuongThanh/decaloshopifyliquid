@@ -8,37 +8,165 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
-    "name": "Color Scheme Settings",
+    "name": "Logo",
     "settings": [
       {
-        "type": "color",
-        "label": "Primary Color",
-        "id": "primary_color",
-        "default": "#007bff"
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
       },
       {
-        "type": "color",
-        "label": "Secondary Color",
-        "id": "secondary_color",
-        "default": "#6c757d"
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 300,
+        "step": 10,
+        "default": 70,
+        "unit": "px",
+        "label": "Desktop logo width"
+      }
+    ]
+  },
+  {
+    "name": "Color setting",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          {
+            "type": "color",
+            "id": "background",
+            "label": "Background color",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color_background",
+            "id": "background_gradient",
+            "label": "Background gradient"
+          },
+          {
+            "type": "color",
+            "id": "text",
+            "label": "Color text",
+            "default": "#121212"
+          },
+          { 
+            "type": "color",
+            "id": "button",
+            "label": "Button background",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_label",
+            "label": "color 4",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "shadow",
+            "label": "color7",
+            "default": "#121212"
+          }
+        ],
+        "role": {
+          "text": "text",
+          "background": {
+            "solid": "background",
+            "gradient": "background_gradient"
+          },
+          "links": "secondary_button_label",
+          "icons": "text",
+          "primary_button": "button",
+          "on_primary_button": "button_label",
+          "primary_button_border": "button",
+          "secondary_button": "background",
+          "on_secondary_button": "secondary_button_label",
+          "secondary_button_border": "secondary_button_label"
+        }
+      }
+    ]
+  },
+  {
+    "name":"Typography",
+    "settings":[
+      {
+        "type":"header",
+        "content": "Headings"
       },
       {
-        "type": "color",
-        "label": "Background Color",
-        "id": "background_color",
-        "default": "#f8f9fa"
+        "type":"font_picker",
+        "id":"header_font",
+        "default":"lato_n6",
+        "label":"fonts"
       },
       {
-        "type": "color",
-        "label": "Text Color",
-        "id": "text_color",
-        "default": "#333333"
+        "type": "range",
+        "id": "heading_scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Fonts size scale",
+        "default": 100
       },
       {
-        "type": "color",
-        "label": "Link Color",
-        "id": "link_color",
-        "default": "#17a2b8"
+        "type":"header",
+        "content": "Body"
+      },
+      {
+        "type":"font_picker",
+        "id":"body_font",
+        "default":"lato_n4",
+        "label":"font"
+      },
+      {
+        "type": "range",
+        "id": "body_scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Fonts size scalel",
+        "default": 100
+      }
+    ]
+  },
+  {
+    "name":"Layout",
+    "settings":[
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "default": 1180,
+        "unit": "px",
+        "label": "Page with"
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections",
+        "min": 0,
+        "max": 200,
+        "step": 10,
+        "default": 0,
+        "unit": "px",
+        "label": "Space between template sections"
       }
     ]
   }

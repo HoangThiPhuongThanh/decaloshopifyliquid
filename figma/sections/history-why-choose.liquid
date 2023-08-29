@@ -1,7 +1,12 @@
+{%  style  %} 
+  .overlay::after {
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  }
+{% endstyle %} 
 <section class="why-choose text-align-center  p-relative">
-  <div class="p-absolute top-0 left-0 w-100 h-100">
+  <div class="p-absolute top-0 left-0 w-100 h-100 overlay">
     {% if section.settings.image != blank %}
-      <img src=" {{ block.settings.image | image_url }}" alt="" class="h-100 w-100">
+      <img src=" {{ section.settings.image | image_url }}" alt="" class="h-100 w-100">
     {%- else -%}
       {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
     {% endif %}
@@ -49,6 +54,16 @@
         "id": "paragraph",
         "label": "Paragraph",
         "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>"
+      },
+      {
+        "type": "range",
+        "id": "image_overlay_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "%",
+        "label": "Image overlay opacity",
+        "default": 10
       }
     ]
   }

@@ -1,25 +1,31 @@
-<section id="banner" class="p-relative">
-  
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+<section class="{% if section.settings.layout == 'grid' %} ctnr {% endif %} ">
+  <div id="banner" class="p-relative   color-{{ section.settings.color_scheme }}">
     <div class="slideshow-container slideshow">
       {% for block in section.blocks %}
-      <div class="banner__img mySlides banner__content p-relative fade {% if forloop.first %} d-block {% endif %} ">
-          <div class="p-absolute top-0 left-0 w-100 h-100">
+        <style>
+          #Slide-{{ section.id }}-{{ forloop.index }} .overlay::after {
+            opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+          }
+        </style>
+      <div class="banner__img mySlides  banner__{{ section.settings.slide_height }} p-relative fade {% if forloop.first %} d-block {% endif %} " id="Slide-{{ section.id }}-{{ forloop.index }}">
+          <div class="p-absolute overlay top-0 left-0 w-100 h-100" >
             {% if block.settings.image != blank %}
               <img src=" {{ block.settings.image | image_url }}" alt="" class="h-100 w-100">
             {%- else -%}
               {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
-            {% endif %}
+            {% endif %} 
           </div>
           <div class=" p-relative w-100">
               <div class="ctnr">
-                 {% if block.settings.heading != blank %}
-                    <h3 class =" h1  line-height-15em title color-white banner__title">
+                  {% if block.settings.heading != blank %}
+                    <h1 class =" {{ section.blocks.heading_size }}  line-height-15em title color-text banner__title">
                       {{ block.settings.heading }}
-                    </h3>
+                    </h1>
                   {%- else -%}
-                    <h3 class ="h1  line-height-15em title color-white banner__title">Welcome to store</h3>
+                    <h1 class ="Ơ  line-height-15em title banner__title">Welcome to store</h1>
                   {% endif %}
-                  <a href="{{block.settings.link}}" class="btn btn-primary d-inline-block">{{ block.settings.button_label}}</a>
+                  <a href="{{block.settings.link}}" class="btn  background-btn d-inline-block">{{ block.settings.button_label}}</a>
               </div>
           </div>
       </div>
@@ -34,9 +40,9 @@
                 <path d="M6 1L18 11.3265L6 23" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
-     
+      
     </div>
- 
+  </div>
 </section>
 
 
@@ -46,7 +52,52 @@
     "name": "Slideshow",
     "class": "index-section index-section--flush",
     "settings": [
-      
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "full_bleed",
+            "label": "Full with"
+          },
+          {
+            "value": "grid",
+            "label": "Grid"
+          }
+        ],
+        "default": "full_bleed",
+        "label": "Full with"
+      },
+      {
+        "type": "select",
+        "id": "slide_height",
+        "options": [
+          {
+            "value": "adapt_image",
+            "label": "Adapt to first image"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          }
+        ],
+        "default": "adapt_image",
+        "label": "Slide height"
+      },
+      { 
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "background-1"
+      }
     ],
     "blocks": [
     {
@@ -65,6 +116,30 @@
         "label": "Heading"
       },
       {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h4",
+            "label": "Extra Small"
+          },
+          {
+            "value": "h3",
+            "label": "Small"
+          },
+          {
+            "value": "h2",
+            "label": "Medium"
+          },
+          {
+            "value": "h1",
+            "label": " Large "
+          }
+        ],
+        "default": "h1",
+        "label": "Heading size"
+      },
+      { 
         "type": "text",
         "id": "button_label",
         "default": "Shop now",
@@ -75,6 +150,16 @@
         "type": "url",
         "id": "link",
         "label": "Button link"
+      },
+      {
+        "type": "range",
+        "id": "image_overlay_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "%",
+        "label": "Image overlay opacity",
+        "default": 10
       }
       ]
     }

@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "collection": {
+      "type": "collection",
+      "settings": {}
+    },
+    "pf-b4031565": {
+      "type": "pf-b4031565",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection",
+    "pf-b4031565"
+  ]
+}

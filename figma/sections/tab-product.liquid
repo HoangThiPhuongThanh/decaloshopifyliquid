@@ -1,5 +1,5 @@
 
-<section class="tabs product-detail__tabs" >
+<section class="tabs product-detail__tabs color-{{ section.settings.color_scheme }}" >
 
   <div class="tabs__link ">
       <div class="ctnr">
@@ -59,6 +59,12 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
+          },
+          { 
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color scheme",
+            "default": "background-2"
           }
         ]
       }
